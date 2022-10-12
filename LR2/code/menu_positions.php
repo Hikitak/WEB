@@ -155,15 +155,15 @@ require_once 'logic.php'
         <div class="pt-3 pb-2 mx" style="text-align: center">
             <label >Фильтрация по названию:</label>
             <br>
-            <input class="mx-1 mt-2" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_name" placeholder=" Введите название" value="">
+            <input class="mx-1 mt-2" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_name" placeholder=" Введите название" value="<?=$pizza_name?>">
         </div>
 
         <div class="pt-1 pb-3 mx-1" style="text-align: center">
             <label >Фильтрация по цене:</label>
             <br>
-            <input class="mx-1 mt-2" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_price_bottom" placeholder=" Цена от" value="">
+            <input class="mx-1 mt-2" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_price_bottom" placeholder=" Цена от" value="<?=$pizza_price_bottom?>">
             <br>
-            <input class="mx-1 mt-2 mt-1" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_price_top" placeholder=" Цена до" value="">
+            <input class="mx-1 mt-2 mt-1" style="width: 800px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_price_top" placeholder=" Цена до" value="<?=$pizza_price_top?>">
         </div>
 
         <div class="pt-1 pb-3 mx-1" style="text-align: center">
@@ -171,8 +171,8 @@ require_once 'logic.php'
             <select style="color: grey; width: 800px; height: 35px; border-color: #fc8507; border-radius: 5px" name="menu_category">
                 <option class="p-1" style="color: lightgrey" >Выберите категорию</option>
                 <?php while($row = $queryCategories->fetch(PDO::FETCH_ASSOC)) {?>
-                    <?php if ($row['name'] == $menu_category){?>
-                        <option selected><?php echo $row['name']?></option>
+                    <?php if ($row['name'] == $_GET["menu_category"]){?>
+                        <option selected><?=$_GET["menu_category"]?></option>
                     <?php }else {?>
                         <option><?php echo $row['name']?></option>
                     <?php }?>
@@ -183,12 +183,12 @@ require_once 'logic.php'
         <div class="pt-1 pb-3 mx-1" style="text-align: center">
             <label >Фильтрация по рецептуре:</label>
             <br>
-            <textarea class="mx-1 mt-2" style="width: 800px; height: 90px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_recipe" placeholder=" Введите описание..." value=""></textarea>
+            <textarea class="mx-1 mt-2" style="width: 800px; height: 90px; border-color: #fc8507; border-radius: 5px" type="text" name="pizza_recipe" placeholder=" Введите описание..." value=""><?=$pizza_recipe?></textarea>
         </div>
 
         <div class="pt-1 pb-4 mx-1" style="text-align: center">
             <input style="width: 180px; height: 45px ;background: linear-gradient(0deg,#fc8507,#ffa218);border-color: #fc8507 transparent #ffa218; border-style: solid;border-width: 1px;color: #fff;border-radius: 5px" type="submit" onclick="" value="Применить фильтр" name="get">
-            <input style="width: 180px; height: 45px ;background: linear-gradient(0deg,#fc3807,#ff9318);border-color: #fc1b07 transparent #ff9318; border-style: solid;border-width: 1px;color: #fff;border-radius: 5px" type="submit" onclick="" value="Отчистить фильтр" name="clear">
+            <input style="width: 180px; height: 45px ;background: linear-gradient(0deg,#fc3807,#ff9318);border-color: #fc1b07 transparent #ff9318; border-style: solid;border-width: 1px;color: #fff;border-radius: 5px" type="submit" onclick="" value="Очистить фильтр" name="clear">
         </div>
     </form>
     <div class="container mt-1 pt-1 mb-2" style="font-size: 19px; background-color: white; border-radius: 15px; border: #333333">
