@@ -1,0 +1,84 @@
+.navbar {
+    height: 35px !important;
+}
+
+.buttons .compare-link, header .header-bottom .buttons .wishlist-link {
+    align-items: center;
+    display: flex;
+}
+
+ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+}
+
+ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
+}
+
+.breadcrumb-list {
+    background-color: transparent;
+    border-radius: 0;
+    color: gray;
+    display: flex;
+    font-size: 13px;
+    margin-block-start: 0 !important;
+    max-height: 18px;
+    overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+
+}
+
+.breadcrumb-list__item {
+    background: #e7e7e7;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.breadcrumb-list a {
+    color: #333;
+    text-decoration: none;
+}
+
+.breadcrumb-list a:hover {
+    color: #ff8725; /* Цвет ссылки при наведении на нее курсора мыши */
+
+}
+
+.breadcrumb-list > li + li:before {
+    color: gray;
+    content: "> ";
+    padding: 0 5px;
+}
+.nav-link a:hover{
+    color: #ff8725; /* Цвет ссылки при наведении на нее курсора мыши */
+}
+.nav-link a{
+    color: white;
+}
+.menu-image{
+    width: 200px;
+}
+
+.menu-name{
+    font-weight: bold;
+    color: #0a53be;
+    font-size: 15px;
+}
+
+.menu-recipe{
+    font-size: 13px;
+}
+
+.menu-price{
+    font-weight: bold;
+}
+.tr-class{
+    height: 20px;
+    overflow-y: scroll;
+}
