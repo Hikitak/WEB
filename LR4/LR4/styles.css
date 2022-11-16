@@ -1,7 +1,12 @@
 .navbar {
     height: 35px !important;
 }
-
+.yellowBackground{
+    background-color: yellow;
+}
+@media my-yellow{
+    body{background-color: yellow}
+}
 .buttons .compare-link, header .header-bottom .buttons .wishlist-link {
     align-items: center;
     display: flex;
