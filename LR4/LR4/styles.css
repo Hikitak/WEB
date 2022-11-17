@@ -4,6 +4,9 @@
 .yellowBackground{
     background-color: yellow;
 }
+.whiteBackground{
+    background-color: white !important;
+}
 @media my-yellow{
     body{background-color: yellow}
 }

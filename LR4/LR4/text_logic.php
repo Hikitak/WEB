@@ -109,18 +109,18 @@ class textAnalyze
         $matches[0] = array_unique($matches[0]);
         foreach ($matches[0] as $elem) {
             $count = 0;
-            $mainText = preg_replace_callback("/(\b" . $elem . "\b)(?!=<\/r>)/ui", function ($item) use (&$count) {
-                $count++;
-                if ($count > 1) {
-                    return "<r class='yellowBackground'>" . $item[0] . "</r>";
-                } else {
-                    return $item[0];
-                }
+            //"/(?<=\b" . $elem . "\b)(\s+(\b" . $elem . "\b))+(?!=<\/r>)/ui"
+            $mainText = preg_replace_callback("/(?<=\b" . $elem . "\b\s)((\s*|\s*\.\s*|\s*,\s*)(\b" . $elem . "\b))+(?!=<\/r>)/ui", function ($item) use (&$count) {
+                    return "<r style='background-color: yellow'>" . $item[0] . "</r>";
+
             }, $mainText);
+
+            //$mainText = preg_replace("/^(\b" . $elem . "\b)(\s+(\b" . $elem . "\b))+(?!=<\/r>)/ui", "<r style='background-color: white !important;'>" . $elem . "</r>",$mainText,1);
         }
 
         return $mainText;
     }
+
 
 
 
