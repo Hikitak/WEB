@@ -36,23 +36,23 @@ require "header.php";
 
         <h3>Задание 5</h3>
         <div>
-            <?=replacementTireAndDobleSpace($text)?>
+            <?=$analyze->replacementTireAndDobleSpace($text)?>
         </div>
         <h3>Задание 9</h3>
         <div>
-            <?=deleteExtraSpaces($text)?>
+            <?=$analyze->deleteExtraSpaces($text)?>
         </div>
         <h3>Задание 15</h3>
         <div>
-            <?=subjectIndex($text)?>
+            <?=$analyze->subjectIndex($text)?>
         </div>
         <h3>Задание 17</h3>
         <div>
-            <?=highlightRepeatedWords($text)?>
+            <?=$analyze->highlightRepeatedWords($text)?>
         </div>
         <h3>Введенный текст</h3>
         <div>
-            <?=baseText($text)?>
+            <?=$analyze->baseText($text)?>
         </div>
     </div>
 </form>
