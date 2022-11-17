@@ -71,24 +71,31 @@ class textAnalyze
     {
         $textArr = preg_match_all('/(\b\w+\b)/ui', strip_tags($mainText), $matches);
         $matches[0] = array_unique($matches[0]);
-        $i = 1;
-        //$matches=array_diff($matches,["и", "или", "да", "а", "но", "в", "к", "o", "с", "у", "от", "од", "до", "по", "под"]);
+        $i = 0;
+        $exept=array("и", "или", "да", "а", "но", "в", "к", "o", "с", "у", "от", "од", "до", "по", "под");
         foreach ($matches[0] as $elem) {
-            if (mb_strtolower($elem) != "и" && mb_strtolower($elem) != 'а' && mb_strtolower($elem) != 'но'
-                && mb_strtolower($elem) != 'или' && mb_strtolower($elem) != 'да' && mb_strtolower($elem) != 'не'
-                && mb_strtolower($elem) != 'ни' && mb_strtolower($elem) != 'у' && mb_strtolower($elem) != 'о'
-                && mb_strtolower($elem) != 'к' && mb_strtolower($elem) != 'в' && mb_strtolower($elem) != 'до'
-                && mb_strtolower($elem) != 'с' && mb_strtolower($elem) != 'от' && mb_strtolower($elem) != 'об'
-                && mb_strtolower($elem) != 'по' && mb_strtolower($elem) != 'под' && mb_strtolower($elem) != 'без' && !is_numeric($elem)
+            if (!in_array(mb_strtolower($elem), $exept) && !is_numeric($elem)
             ) {
                 $count = 0;
-                $times[$i] = preg_match_all("/(\b" . $elem . "\b)(?!=<\/r>)/ui", $mainText);
-                print "<div>$i. <a href='#part$i'>$elem</a> - $times[$i] раз</div>";
+                $times[$elem] = preg_match_all("/(\b" . $elem . "\b)(?!=<\/r>)/ui", $mainText)  ;
+                $stimes[preg_match_all("/(\b" . $elem . "\b)(?!=<\/r>)/ui", $mainText)] = $elem;
+                //print "<div>$i. <a href='#part$i'>$elem</a> - $times[$i] раз</div>";
                 $i++;
-                if ($i == 101)
+                if ($i == 100)
                     break;
             }
 
+        }
+        arsort($times);
+        $i=1;$j=0;
+        foreach ($times as $key => $item){
+            if (!in_array(mb_strtolower($times[$key]), $exept) && !is_numeric($elem)
+            ) {
+                print "<div>$i. <a href='#part$i'>$key</a> - $times[$key] раз</div>";
+                $i++;$j++;
+                if ($i == 101)
+                    break;
+            }
         }
 
     }
@@ -123,14 +130,11 @@ class textAnalyze
         $textArr = preg_match_all('/(\b\w+\b)/ui', $mainText, $matches);
         $matches[0] = array_unique($matches[0]);
         $i = 1;
+        $exept=array("и", "или", "да", "а", "но", "в", "к", "o", "с", "у", "от", "од", "до", "по", "под");
+
         //$matches=array_diff($matches,["и", "или", "да", "а", "но", "в", "к", "o", "с", "у", "от", "од", "до", "по", "под"]);
         foreach ($matches[0] as $elem) {
-            if (mb_strtolower($elem) != "и" && mb_strtolower($elem) != 'а' && mb_strtolower($elem) != 'но'
-                && mb_strtolower($elem) != 'или' && mb_strtolower($elem) != 'да' && mb_strtolower($elem) != 'не'
-                && mb_strtolower($elem) != 'ни' && mb_strtolower($elem) != 'у' && mb_strtolower($elem) != 'о'
-                && mb_strtolower($elem) != 'к' && mb_strtolower($elem) != 'в' && mb_strtolower($elem) != 'до'
-                && mb_strtolower($elem) != 'с' && mb_strtolower($elem) != 'от' && mb_strtolower($elem) != 'об'
-                && mb_strtolower($elem) != 'по' && mb_strtolower($elem) != 'под' && mb_strtolower($elem) != 'без'
+            if (!in_array($elem, $exept) && !is_numeric($elem)
             ) {
                 $mainText = preg_replace("/(\b" . $elem . "\b)(?!=<\/r>)/ui", "<r id='part$i'>$elem</r>", $mainText, 1);
                 $i++;
