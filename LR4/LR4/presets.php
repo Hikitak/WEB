@@ -676,7 +676,7 @@ $preset0='<div class="typical itemprop=" articlebody"="" dialog="" _ga1_on_="" c
   </div>
 
 	       </div>';
-$preset1 = '<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Киноринхи rootpage-Киноринхи skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+$preset1 = '
 <div id="mw-head-base" class="noprint"></div>
 <div id="content" class="mw-body" role="main">
 	<a id="top"></a>

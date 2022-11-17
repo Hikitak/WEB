@@ -71,8 +71,7 @@ else {
     }
     //17
 /*function highlightRepeatedWords($mainText){
-
-    //  $mainText = preg_replace('/(\b[а-я]+\b)(?=.*\1)/ui',"-",$mainText);
+    $mainText = preg_replace('/(\b[а-я]+\b)(?=.*\1)/ui',"-",$mainText);
     $textArr = preg_match_all('/(\b\w+\b)/ui',strip_tags($mainText), $matches);
     $matches[0] = array_unique($matches[0]);
     foreach($matches[0] as $elem){
